@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="DanmukuRPCServer.DanmakuTextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DanmukuRPCServer"
+             mc:Ignorable="d" 
+             Name="UserControl"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="LayoutRoot">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="60" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TextBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="UserControl">
+                <EasingDoubleKeyFrame KeyTime="0:0:15" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:18" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid Name="LayoutRoot" Background="#DB303030" Height="0">
+        <RichTextBox Name="TextBox" FontSize="28" BorderThickness="0" Foreground="#FFFFFFFF" Background="{x:Null}" Padding="20">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Name="UserName" Foreground="#FFFFFF00">U</Run>
+                    <Run Foreground="#FFFFFFFF" FontFamily="方正隶变_GBK" FontSize="29.333"> </Run>
+                    <Run Name="Text" Foreground="#FFFFFFFF" FontWeight="Bold" FontSize="32" FontFamily="方正隶变_GBK">Text</Run>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</UserControl>
