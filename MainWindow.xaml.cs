@@ -190,6 +190,8 @@ namespace DanmukuRPCServer
 
         public void AddDMText(string user, string text, bool warn)
         {
+            if (user == null || text == null)
+                return;
             if (Dispatcher.CheckAccess())
             {
                 while (infos.Count >= 50)

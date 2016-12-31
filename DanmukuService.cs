@@ -20,7 +20,7 @@ namespace DanmukuRPCServer
     {
         public static ConcurrentBag<Danmu> MsgQueue = new ConcurrentBag<Danmu>();
         public static bool close = false;
-        public static bool danmu = true;
+        public static bool danmu = false;
 
         [XmlRpcMethod("fire_danmuku")]
         [return: XmlRpcReturnValue(Description = "Send Danmuku")]
